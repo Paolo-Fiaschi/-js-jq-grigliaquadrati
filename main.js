@@ -26,12 +26,13 @@ var redPoint = 0, greenPoint = 0;
 
   for (var i = 0; i < 64; i++) {
     var random = Math.floor(Math.random() * 64);
+    var nuovoRandom = Math.floor(Math.random() * 64);
     var divTableConteiner = $(".tablecontainer");
     var divRandom = $("div .tablecontainer").append('<div class="square"></div>');
 
   }
   // ciclo per aggiungere 15 volete redWannabe in maniera randomica a square
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 15 ; i++) {
 
     var random = Math.floor(Math.random() * 64);
     var square = $(".square");
@@ -39,7 +40,8 @@ var redPoint = 0, greenPoint = 0;
 
     //square.eq(random % square.length).addClass('redWannabe')[i]++;
     if ($(".tablecontainer").find(square).eq(random).hasClass('redWannabe')) {
-      $(this).removeClass('redWannabe');
+      
+      $(".tablecontainer").find(square).eq(nuovoRandom).addClass('redWannabe');
 
       console.log(random);
 
