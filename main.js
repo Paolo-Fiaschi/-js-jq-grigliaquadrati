@@ -24,6 +24,8 @@ var redPoint = 0, greenPoint = 0;
   //   }
   // );
 
+
+  // ciclo per generare 64 div random
   for (var i = 0; i < 64; i++) {
     var random = Math.floor(Math.random() * 64);
     var nuovoRandom = Math.floor(Math.random() * 64);
@@ -32,34 +34,30 @@ var redPoint = 0, greenPoint = 0;
 
   }
   // ciclo per aggiungere 15 volete redWannabe in maniera randomica a square
-  for (var i = 0; i < 15 ; i++) {
+
+  var i = 0;
+  while (i < 15) {
 
     var random = Math.floor(Math.random() * 64);
     var square = $(".square");
     console.log(random);
 
-    //square.eq(random % square.length).addClass('redWannabe')[i]++;
-    if ($(".tablecontainer").find(square).eq(random).hasClass('redWannabe')) {
-      
-      $(".tablecontainer").find(square).eq(nuovoRandom).addClass('redWannabe');
+    if (!$(".tablecontainer").find(square).eq(random).hasClass('redWannabe')) {
 
+      $(".tablecontainer").find(square).eq(random).addClass('redWannabe');
+
+      i++; // se no ha la classe redWannabe incrementa di uno e continua il ciclo
+
+      // $(".tablecontainer").find(square).eq(random).addClass('redWannabe');
       console.log(random);
-
-
-    }else{
+    }else{ //se ha la classe redWannabe ripeti il ciclo con un altro numero random
       $(".tablecontainer").find(square).eq(random).addClass('redWannabe');
 
     }
-    // estraggo un numero
-    // verifico se il quadrato collegato a quel numero non ha redWannabe
-    // se non ha redWannabe gliel'assegno e vado al prossio ciclo for
-    // se ha già redWannabe devo generare un altro numero random
-
   }
   console.log(square);
 
-
-
+  // al click segna il punteggio del verde e del rosso
   $('.square').click(
     function () {
       if($(this).hasClass('active')){
@@ -81,7 +79,18 @@ var redPoint = 0, greenPoint = 0;
     }
   );
 
-
+  // $('.square').click(
+  //   function(){
+  //
+  //     if (($(this).hasClass('redWannabe'))) {
+  //       $(this).css('background', 'red');
+  //       alert("Hai perso");
+  //     }else {
+  //       $(this).css('background', 'green');
+  //     }
+  //
+  //   }
+  // );
 
 
 
